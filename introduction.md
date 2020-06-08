@@ -12,15 +12,7 @@ description: An introduction to the request <-> response flow and auth process.
 
 
 
-## Postman
-
-Includes the examples of how to create token and how to use it with the `createPartnerVideoRoom`mutation. There are examples is various languages, allowing you to pick whichever best suits your implementation.
-
-{% hint style="info" %}
-**Please see Postman Docs** [here.](https://documenter.getpostman.com/view/2134451/SzezdCGp?version=latest)
-{% endhint %}
-
-## BetterPT Identity
+## BetterPT Auth
 
 BetterPT uses [Auth0](https://www.auth0.com) to manage and generate [JSON Web Tokens](https://jwt.io) for its partner APIs. **The credentials you need to get started will be sent via encrypted email - please reach out to us for access.**
 
