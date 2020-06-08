@@ -22,113 +22,7 @@ Recommended Clients
 
 ## The Schema
 
-Below is the schema for the API. Normally you would be able to access this via the playground, but it is a protected endpoint. We are working on a solution for this.
-
-```graphql
-scalar Date
-
-
-#  A RFC 3339 compliant date/time scalar type. Example: 2020-12-03T10:15:30Z. 
-""" A RFC 3339 compliant date/time scalar type. Example: 2020-12-03T10:15:30Z. """
-scalar DateTime
-
-
-#  Handles pagination 
-""" Handles pagination """
-type ListPager {
-  limit: Int
-  offset: Int
-  count: Int
-  total: Int
-}
-
-enum PartnerVideoRoomTimeZonesEnum {
-  America_Adak
-  America_Anchorage
-  America_Boise
-  America_Chicago
-  America_Dawson
-  America_Dawson_Creek
-  America_Denver
-  America_Detroit
-  America_Indiana_Indianapolis
-  America_Indiana_Knox
-  America_Indiana_Marengo
-  America_Indiana_Petersburg
-  America_Indiana_Tell_City
-  America_Indiana_Vevay
-  America_Indiana_Vincennes
-  America_Indiana_Winamac
-  America_Indianapolis
-  America_Juneau
-  America_Kentucky_Louisville
-  America_Kentucky_Monticello
-  America_Knox_IN
-  America_Los_Angeles
-  America_Louisville
-  America_New_York
-  America_Nome
-  America_North_Dakota_Beulah
-  America_North_Dakota_Center
-  America_North_Dakota_New_Salem
-  America_Phoenix
-  America_Sitka
-  America_Vancouver
-  America_Yakutat
-}
-
-
-# A PartnerVideoRoom contains all necessaey data for a telehealth session.
-"""
-A PartnerVideoRoom contains all necessaey data for a telehealth session.
-"""
-type PartnerVideoRoom {
-  uid: ID!
-  startTime: DateTime!
-  timeZone: String!
-  displayName: String
-  patientLink: String!
-  providerLink: String!
-  patientDuration: Int
-  providerDuration: Int
-  didPatientAttend: Boolean
-  didProviderAttend: Boolean
-}
-
-
-# The input type for the `createPartnerVideoRoom` mutation.
-"""
-The input type for the `createPartnerVideoRoom` mutation.
-"""
-input CreatePartnerVideoRoomInput {
-  startTime: DateTime!
-  timeZone: PartnerVideoRoomTimeZonesEnum!
-  displayName: String
-}
-
-type Mutation {
-  
-  # Creates a `PartnerVideoRoom`
-  """
-  Creates a `PartnerVideoRoom`
-  """
-  createPartnerVideoRoom(input: CreatePartnerVideoRoomInput!): PartnerVideoRoom!
-}
-
-type Query {
-  
-  # View details for a `PartnerVideoRoom`. Duration and attendance will be updated 2 hours after startTime.
-  """
-  View details for a `PartnerVideoRoom`. Duration and attendance will be updated 2 hours after startTime.
-  """
-  partnerVideoRoom(uid: ID!): PartnerVideoRoom!
-}
-
-schema {
-  query: Query
-  mutation: Mutation
-}
-```
+You can access the schema via the "Public" Playground, after you have logged into your account.There you can see the schema with relevant information, you can test queries and mutations, etc.
 
 ## The Playground
 
@@ -151,118 +45,40 @@ Because we are only interested in creating video rooms, the operations that matt
 Here is an example mutation:
 
 ```graphql
-mutation {
-  createPartnerVideoRoom(input: { startTime: "2020-12-03T10:15:30Z", displayName: "Bob the PT", timeZone: "America/New_York" } ) {
-    patientLink
-    providerLink
-    startTime
-    displayName
-    timeZone
-    uid
-  }
-}
-```
-
-        And here is an example response:
-
-```javascript
-{
-  "data": {
-    "createPartnerVideoRoom": {
-      "patientLink": "https://meet-staging.betterpt.com/room/09c84a60-8367-4687-beae-ab6b647372c9?code=5073ade4-8b4b-4252-8b78-2718fc8d1328&type=patient",
-      "providerLink": "https://meet-staging.betterpt.com/room/09c84a60-8367-4687-beae-ab6b647372c9?code=3f10184d-03fa-4657-a6bd-a0639d3a3c8e&type=provider",
-      "startTime": "2020-12-03T10:15:30.000Z",
-      "displayName": "Bob the PT",
-      "timeZone": "America/New_York",
-      "uid": "09c84a60-8367-4687-beae-ab6b647372c9"
-    }
-  },
-  "extensions": {
-    "cacheControl": {
-      "version": 1,
-      "hints": []
-    }
-  }
-}
-```
-
-This is the "raw response", however many GraphQL clients return the `data` block automatically so there isn't a need to parse. Note that we are using a [GraphQL Input type](https://graphql.org/learn/schema/#input-types) in this mutation.
-
-### Example
-
-Below is a full example of a mutation in node.js & TypeScript. `graphql-request` is a lower-level library with little abstraction built-in -- it is perfect for a machine to machine request. There are similar libraries available for many other languages. **Note that this does not include fetching a valid token.**
-
-```typescript
-import { GraphQLClient } from 'graphql-request'
-
-
-export const mutateVideoRoom = async (token: string): Promise<any> => {
-  const endpoint = 'https://api-staging-k8s.betterpt.com/v0/graphql-public';
-  const graphQLClient = new GraphQLClient(endpoint, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  const mutation = `
-  mutation {
-      createPartnerVideoRoom(input: { startTime: "2020-12-03T10:15:30Z", displayName: "Bob the PT", timeZone: "America/New_York" } ) {
+mutation createPartnerVideoRoom($input: CreatePartnerVideoRoomInput){
+    createPartnerVideoRoom(input: $input){
+        uid
+        startTime
+        timeZone
+        displayName
         patientLink
         providerLink
-        startTime
-        displayName
-        timeZone
-        uid
-      }
+        patientDuration
+        providerDuration
+        didPatientAttend
+        didProviderAttend
     }
-  `;
-  const data = await graphQLClient.request(mutation);
-  return data;
-};
+
 ```
 
 2. `partnerVideoRoom(uid: String!): PartnerVideoRoom`
 
 Here is an example query:
 
-```typescript
-const querySession = async (token: string): Promise<any> => {
-
-  const endpoint = 'https://api-staging-k8s.betterpt.com/v0/graphql-public';
-  const client = new GraphQLClient(endpoint, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  
-  const query = `
-    query {
-        partnerVideoRoom(uid: "6f8fa1d7-430f-4c04-9405-fe95cbc7efad") {
-          displayName
-          didPatientAttend
-          didProviderAttend
-          patientDuration
-          providerDuration
-          startTime
-        }
-      }
-  `;
-  const data = await client.request(query);
-  return data;
-}
-```
-
-And the response \(note that this does not contain the metadata from the example response above\):
-
-```typescript
-{
-  partnerVideoRoom: {
-    displayName: 'Bob the PT',
-    didPatientAttend: false,
-    didProviderAttend: false,
-    patientDuration: null,
-    providerDuration: null,
-    startTime: '2020-12-12T10:15:00.000Z'
-  }
+```graphql
+query partnerVideoRoom($uid: ID!){
+    partnerVideoRoom(uid: $uid){
+        uid
+        startTime
+        timeZone
+        displayName
+        patientLink
+        providerLink
+        patientDuration
+        providerDuration
+        didPatientAttend
+        didProviderAttend
+    }
 }
 ```
 
