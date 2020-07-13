@@ -6,8 +6,6 @@ description: An introduction to the request <-> response flow and auth process.
 
 ## Request-Response Flow
 
-**TODO**: Add refresh token to this diagram
-
 ![Request-Response Diagram](.gitbook/assets/mermaid-diagram-20200406233222.png)
 
 
