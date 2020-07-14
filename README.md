@@ -26,14 +26,16 @@ You can access the schema via the "Public" Playground, after you have logged int
 
 ## The Playground
 
-The best place to get started with BetterPT's API is to make some test queries and mutations in the GraphQL Playground.
+{% hint style="info" %}
+**The best place to get started with BetterPT's API is to make some test queries and mutations in the GraphQL Playground.** **This also acts as the most up-to-date documentation. Operations are clearly labeled and all types are visible.**
+{% endhint %}
 
 Visit [https://api-staging-k8s.betterpt.com/v0/graphql-public](https://api-staging-k8s.betterpt.com/v0/graphql-public) and you will see the following:
 
 ![At the playground.](.gitbook/assets/image-2020-04-10-at-15.18.35.png)
 
-{% hint style="info" %}
-Please make sure that the url is the same in BOTH the top browser URL bar and the bottom playground URL bar.
+{% hint style="warning" %}
+**Please make sure that the url is the same in BOTH the top browser URL bar and the bottom playground URL bar or the playground will not load correctly.**
 {% endhint %}
 
 ## Queries and Mutations
@@ -72,6 +74,9 @@ query partnerVideoRoom($uid: ID!){
         startTime
         timeZone
         displayName
+        partnerCustomerId
+        partnerProviderEmail
+        partnerPatientEmail
         patientLink
         providerLink
         patientDuration
@@ -90,6 +95,7 @@ Here is an example mutation:
 mutation cancelPartnerVideoRoom($uid: ID!) {
     cancelPartnerVideoRoom(uid: $uid) {
         uid
+        ...
     }
 }
 ```
@@ -99,8 +105,8 @@ mutation cancelPartnerVideoRoom($uid: ID!) {
 Here is an example mutation:
 
 ```graphql
-mutation reschedulePartnerVideoRoom($uid: ID!, $startTime: DateTime!) {
-    reschedulePartnerVideoRoom(uid: $uid, startTime: $startTime) {
+mutation reschedulePartnerVideoRoom($input: ReschedulePartnerVideoRoomInput!) {
+    reschedulePartnerVideoRoom(input: $input) {
         uid
         startTime
         ...
@@ -115,7 +121,7 @@ All of this GraphQL stuff has been super-fun and I would love to write more abou
 1. Two links that are clearly marked as for the provider or for the patient.
 2. The time zone.
 3. The "display name" of the PT - this is displayed in the video interface.
-4. The uid.
+4. The `uid`.
 
 In order to start a session:
 
@@ -142,5 +148,5 @@ BetterPT can send the following emails to your patients and providers:
 
 ### SMS
 
-SMS is on our Q3 roadmap
+SMS is on our Q3 roadmap.
 
