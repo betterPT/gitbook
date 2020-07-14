@@ -100,7 +100,7 @@ Here is an example mutation:
 
 ```graphql
 mutation reschedulePartnerVideoRoom($uid: ID!, $startTime: DateTime!) {
-    reschedulePartnerVideoRoom($uid: ID!, $startTime: DateTime!) {
+    reschedulePartnerVideoRoom(uid: $uid, startTime: $startTime) {
         uid
         startTime
         ...
