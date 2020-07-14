@@ -100,7 +100,7 @@ mutation cancelPartnerVideoRoom($uid: ID!) {
 }
 ```
 
-4. `reschedulePartnerVideoRoom(uid: ID, startTime: DateTime): PartnerVideoRoom`
+4. `reschedulePartnerVideoRoom(input: ReschedulePartnerVideoRoomInput!): PartnerVideoRoom`
 
 Here is an example mutation:
 
