@@ -150,3 +150,26 @@ BetterPT can send the following emails to your patients and providers:
 
 SMS is on our Q3 roadmap.
 
+## Data and Analytics
+
+By performing the `partnerVideoRoom` query, you can retrieve a `PartnerVideoRoom.`
+
+```graphql
+type PartnerVideoRoom {
+    uid: ID!
+    startTime: DateTime!
+    timeZone: String!
+    patientLink: String!
+    providerLink: String!
+    displayName: String
+    partnerCustomerId: String
+    patientDuration: Int
+    providerDuration: Int
+    didPatientAttend: Boolean
+    didProviderAttend: Boolean
+    status: PartnerVideoRoomStatusEnum
+}
+```
+
+With this data you can produce a simple report on Telehealth call duration, status, etc.
+
