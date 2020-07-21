@@ -138,7 +138,7 @@ This is not part of the standard API offering - if you are interested please con
 
 ### Emails
 
-BetterPT can send the following emails to your patients and providers:
+**BetterPT can send the following emails to your patients and providers:**
 
 * Confirmation emails to patients and providers after the telehealth appointment request is accepted.
 * Confirmation emails to patients and providers if the telehealth appointment is rescheduled. 
