@@ -59,6 +59,7 @@ mutation createPartnerVideoRoom($input: CreatePartnerVideoRoomInput){
         providerDuration
         didPatientAttend
         didProviderAttend
+        status
     }
 
 ```
@@ -83,6 +84,7 @@ query partnerVideoRoom($uid: ID!){
         providerDuration
         didPatientAttend
         didProviderAttend
+        status
     }
 }
 ```
@@ -136,19 +138,34 @@ In order to start a session:
 This is not part of the standard API offering - if you are interested please contact sales@betterpt.com
 {% endhint %}
 
-### Emails
+### Outreach Summary\*\* \(in active development\)
 
-**BetterPT can send the following emails to your patients and providers:**
+If BetterPT is provided with `partnerClinicName`and `partnerPatientEmail`and/or `partnerPatientPhoneNumber`, we can handle communication of status changes and reminders for our hosted Video Rooms.
 
-* Confirmation emails to patients and providers after the telehealth appointment request is accepted.
-* Confirmation emails to patients and providers if the telehealth appointment is rescheduled. 
-* Cancellation emails to patients and providers if the telehealth appointment is cancelled.
-* Reminder emails to patients one hour before the scheduled telehealth appointment.
-* Reminder emails to patients and providers fifteen minutes before the scheduled telehealth appointment.
+### Specific Outreach Events & Reminder Schedule
 
-### SMS
+**Communication Schedule & Methods - Patient Email Provided**
 
-SMS is on our Q3 roadmap.
+* "Initial Confirmation" = Email sent with iCal attachment
+* "Reschedule" = Email sent with iCal attachment
+* "Cancellation" = Email 
+* "1-hour reminder" = Email
+* "15-min reminder = Email
+
+**Communication Schedule & Methods - Phone Number Provided**
+
+* "Initial Confirmation" = SMS
+* "Reschedule" = SMS
+* "Cancellation" = SMS 
+* "15-min reminder = SMS
+
+**Communication Schedule & Methods - Patient Email & Phone Provided**
+
+* "Initial Confirmation" = Email sent with iCal attachment 
+* "Reschedule" = Email sent with iCal attachment
+* "Cancellation" = Email 
+* "1-hour reminder" = Email
+* "15-min reminder = Email and SMS sent
 
 ## Data and Analytics
 
