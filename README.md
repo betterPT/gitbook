@@ -138,7 +138,7 @@ In order to start a session:
 This is not part of the standard API offering - if you are interested please contact sales@betterpt.com
 {% endhint %}
 
-### Outreach Summary\*\* \(in active development\)
+### Outreach Summary \(in active development\)
 
 If BetterPT is provided with `partnerClinicName`and `partnerPatientEmail`and/or `partnerPatientPhoneNumber`, we can handle communication of status changes and reminders for our hosted Video Rooms.
 
