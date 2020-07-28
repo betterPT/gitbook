@@ -6,9 +6,9 @@ description: All about BetterPT's GraphQL API
 
 ## Overview
 
-BetterPT's next-generation API is built on top of [GraphQL](https://graphql.org/). It is fast, type-safe, self-documenting and flexible. Plus, all of the cool kids and hipsters are using it. We really dig it.
+BetterPT's next-generation API is built on top of [GraphQL](https://graphql.org/). It is fast, type-safe, self-documenting, and flexible. Plus, all of the cool kids and hipsters are using it. We really dig it.
 
-However we also realize that not everyone has used GraphQL before. The learning curve on the client side is quite gentle. Here are a few resources to get started:
+However, we also realize that not everyone has used GraphQL before. The learning curve on the client-side is quite gentle. Here are a few resources to get started:
 
 * [GraphQL Home](https://graphql.org)
 * [GraphQL Clients](https://graphql.org/code/#graphql-clients)
@@ -22,7 +22,7 @@ Recommended Clients
 
 ## The Schema
 
-You can access the schema via the "Public" Playground, after you have logged into your account.There you can see the schema with relevant information, you can test queries and mutations, etc.
+You can access the schema via the "Public" Playground after you have logged into your account.There you can see the schema with relevant information, you can test queries and mutations, etc.
 
 ## The Playground
 
@@ -35,7 +35,7 @@ Visit [https://api-staging-k8s.betterpt.com/v0/graphql-public](https://api-stagi
 ![At the playground.](.gitbook/assets/image-2020-04-10-at-15.18.35.png)
 
 {% hint style="warning" %}
-**Please make sure that the url is the same in BOTH the top browser URL bar and the bottom playground URL bar or the playground will not load correctly.**
+**Please make sure that the URL is the same in BOTH the top browser URL bar and the bottom playground URL bar or the playground will not load correctly.**
 {% endhint %}
 
 ## Queries and Mutations
@@ -150,14 +150,14 @@ If BetterPT is provided with `partnerClinicName`and `partnerPatientEmail`and/or 
 * **Reschedule** -  Email sent with iCal attachment
 * **Cancellation** - Email 
 * **One hour reminder** - Email
-* **Fifteen minute reminder** - Email
+* **Fifteen-minute reminder** - Email
 
 **Communication Schedule & Methods - Phone Number Provided**
 
 * **Initial Confirmation** - SMS
 * **Reschedule** - SMS
 * **Cancellation** - SMS 
-* **Fifteen minute reminder** - SMS
+* **Fifteen-minute reminder** - SMS
 
 **Communication Schedule & Methods - Patient Email & Phone Provided**
 
@@ -165,7 +165,7 @@ If BetterPT is provided with `partnerClinicName`and `partnerPatientEmail`and/or 
 * **Reschedule** - Email sent with iCal attachment
 * **Cancellation** - Email 
 * **One hour reminder** - Email
-* **Fifteen minute reminder** - Email and SMS sent
+* **Fifteen-minute reminder** - Email and SMS sent
 
 ## Data and Analytics
 
@@ -188,5 +188,5 @@ type PartnerVideoRoom {
 }
 ```
 
-With this data you can produce a simple report on Telehealth call duration, status, etc.
+With this data, you can produce a simple report on Telehealth call duration, status, etc.
 
