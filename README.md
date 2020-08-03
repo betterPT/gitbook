@@ -157,15 +157,16 @@ If BetterPT is provided with `partnerClinicName`and `partnerPatientEmail`and/or 
 * **Initial Confirmation** - SMS
 * **Reschedule** - SMS
 * **Cancellation** - SMS 
+* **One hour reminder** - SMS
 * **Fifteen-minute reminder** - SMS
 
 **Communication Schedule & Methods - Patient Email & Phone Provided**
 
 * **Initial Confirmation** - Email sent with iCal attachment 
-* **Reschedule** - Email sent with iCal attachment
+* **Reschedule** - Email sent with iCal attachment / SMS sent
 * **Cancellation** - Email 
-* **One hour reminder** - Email
-* **Fifteen-minute reminder** - Email and SMS sent
+* **One hour reminder** - Email / SMS Sent
+* **Fifteen-minute reminder** - Email / SMS sent
 
 ## Data and Analytics
 
