@@ -30,13 +30,16 @@ You can access the schema via the "Public" Playground after you have logged into
 **The best place to get started with BetterPT's API is to make some test queries and mutations in the GraphQL Playground.** **This also acts as the most up-to-date documentation. Operations are clearly labeled and all types are visible.**
 {% endhint %}
 
-Visit [https://api-staging-k8s.betterpt.com/v0/graphql-public](https://api-staging-k8s.betterpt.com/v0/graphql-public) and you will see the following:
+Visit [https://playground.betterpt.dev/](https://playground.betterpt.dev/) and you will see the following:
 
-![At the playground.](.gitbook/assets/image-2020-04-10-at-15.18.35.png)
+![GraphQL Playground Login](.gitbook/assets/screen-shot-2021-01-29-at-8.00.30-pm.png)
 
-{% hint style="warning" %}
-**Please make sure that the URL is the same in BOTH the top browser URL bar and the bottom playground URL bar or the playground will not load correctly.**
-{% endhint %}
+You will need to use the email and password provided to you by us.  
+  
+Once you login you should see the following page:  
+
+
+![GraphQL Playground](.gitbook/assets/screen-shot-2021-01-29-at-8.04.43-pm.png)
 
 ## Queries and Mutations
 
@@ -61,7 +64,7 @@ mutation createPartnerVideoRoom($input: CreatePartnerVideoRoomInput){
         didProviderAttend
         status
     }
-
+}
 ```
 
 2. `partnerVideoRoom(uid: String!): PartnerVideoRoom`
@@ -122,13 +125,12 @@ All of this GraphQL stuff has been super-fun and I would love to write more abou
 
 1. Two links that are clearly marked as for the provider or for the patient.
 2. The time zone.
-3. The "display name" of the PT - this is displayed in the video interface.
+3. The "display name" of the PT - is displayed in the video interface.
 4. The `uid`.
 
 In order to start a session:
 
 1. The patient opens the patient link, the provider opens the provider link.
-2. The provider must start the session.
 
 **The session is open for 60 minutes and users can enter five minutes before the start time. Once a session has started, it cannot be updated.**
 
