@@ -18,7 +18,7 @@ BetterPT uses [Auth0](https://www.auth0.com) to manage and generate [JSON Web To
 
 **1. Request the token**
 
-There are many Auth0 compatible libraries listed [here.](https://auth0.com/docs/libraries) Below are are a few code samples in **cURL, C\# and node.js \(please note that `client_id`, `client_secret`, and `audience,`** **will be emailed to you - these are just example values.**
+There are many Auth0 compatible libraries listed [here.](https://auth0.com/docs/libraries) Below are a few code samples in **cURL, C\#, and node.js \(please note that `client_id`, `client_secret`, and `audience,`** **will be emailed to you - these are just example values.**
 
 ```bash
 curl --request POST \
@@ -78,7 +78,7 @@ NOTE: You **must check the access token's expiration and use it if it is still v
 
 Example of reusing access token and checking expiration:
 
-_in this example we are using AWS DynamoDB and AWS Secrets Manager, your implementation may differ._
+_in this_ example _we are using AWS DynamoDB and AWS Secrets Manager, your implementation may differ._
 
 ```typescript
 const secretsManager = new AWS.SecretsManager();
