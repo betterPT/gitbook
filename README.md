@@ -127,6 +127,10 @@ All of this GraphQL stuff has been super-fun and I would love to write more abou
 2. The time zone.
 3. The "display name" of the PT - is displayed in the video interface.
 4. The `uid`.
+5. Two links that are clearly marked as for the provider or for the patient.
+6. The time zone.
+7. The "display name" of the PT - is displayed in the video interface.
+8. The `uid`.
 
 In order to start a session:
 
