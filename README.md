@@ -34,14 +34,14 @@ You can access the schema via the "Public" Playground after you have logged into
 
 Visit [https://playground.betterpt.dev/](https://playground.betterpt.dev) and you will see the following:
 
-![GraphQL Playground Login](<.gitbook/assets/Screen Shot 2021-01-29 at 8.00.30 PM.png>)
+![GraphQL Playground Login](.gitbook/assets/screen-shot-2021-01-29-at-8.00.30-pm.png)
 
 You will need to use the email and password provided to you by us.\
 \
 Once you login you should see the following page:\
 
 
-![GraphQL Playground](<.gitbook/assets/Screen Shot 2021-01-29 at 8.04.43 PM.png>)
+![GraphQL Playground](.gitbook/assets/screen-shot-2021-01-29-at-8.04.43-pm.png)
 
 ## Queries and Mutations
 
