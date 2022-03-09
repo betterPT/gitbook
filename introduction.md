@@ -18,7 +18,7 @@ BetterPT uses [Auth0](https://www.auth0.com) to manage and generate [JSON Web To
 
 **1. Request the token**
 
-There are many Auth0 compatible libraries listed [here.](https://auth0.com/docs/libraries) Below are a few code samples in **cURL, C\#, and node.js \(please note that `client_id`, `client_secret`, and `audience,`** **will be emailed to you - these are just example values.**
+There are many Auth0 compatible libraries listed [here.](https://auth0.com/docs/libraries) Below are a few code samples in **cURL, C#, and node.js (please note that `client_id`, `client_secret`, and `audience,`** **will be emailed to you - these are just example values).**
 
 ```bash
 curl --request POST \
@@ -61,7 +61,7 @@ request(options, function (error, response, body) {
 
 **3. Using the token**
 
-Here is how you set and use the token \(GraphQL example in progress\):
+Here is how you set and use the token (GraphQL example in progress):
 
 ```bash
 curl --location --request POST 'http://api-staging-k8s.betterpt.com/v0/graphql-public/' \
@@ -73,7 +73,7 @@ curl --location --request POST 'http://api-staging-k8s.betterpt.com/v0/graphql-p
 **4. Reuse the access token**
 
 {% hint style="danger" %}
-NOTE: You **must check the access token's expiration and use it if it is still valid** **in production** \(and preferably in staging\) or you will be **severely rate-limited and your video rooms will not be successfully created.**
+NOTE: You **must check the access token's expiration and use it if it is still valid** **in production** (and preferably in staging) or you will be **severely rate-limited and your video rooms will not be successfully created.**
 {% endhint %}
 
 Example of reusing access token and checking expiration:
@@ -166,4 +166,3 @@ export const tokenService = {
   }
 }
 ```
-
