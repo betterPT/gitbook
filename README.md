@@ -6,16 +6,16 @@ description: All about BetterPT's GraphQL API
 
 ## Overview
 
-BetterPT's next-generation API is built on top of [GraphQL](https://graphql.org/). It is fast, type-safe, self-documenting, and flexible. Plus, all of the cool kids and hipsters are using it. We really dig it.
+BHC's next-generation API is built on top of [GraphQL](https://graphql.org). It is fast, type-safe, self-documenting, and flexible. We love GraphQL. :heart\_decoration:
 
-However, we also realize that not everyone has used GraphQL before. The learning curve on the client-side is quite gentle. Here are a few resources to get started:
+However, we realize that not everyone has used GraphQL. The learning curve on the client-side is quite gentle. Here are a few resources to get started:
 
 * [GraphQL Home](https://graphql.org)
 * [GraphQL Clients](https://graphql.org/code/#graphql-clients)
 
 Recommended Clients
 
-* [C\#/.NET](https://chillicream.com/blog/2019/11/25/strawberry-shake_2)
+* [C#/.NET](https://chillicream.com/blog/2019/11/25/strawberry-shake\_2)
 * [Java/Scala](https://github.com/americanexpress/nodes)
 * [node.js](https://github.com/prisma-labs/graphql-request)
 * [React.js, Angular, Vue](https://www.apollographql.com/docs/react/)
@@ -30,16 +30,18 @@ You can access the schema via the "Public" Playground after you have logged into
 **The best place to get started with BetterPT's API is to make some test queries and mutations in the GraphQL Playground.** **This also acts as the most up-to-date documentation. Operations are clearly labeled and all types are visible.**
 {% endhint %}
 
-Visit [https://playground.betterpt.dev/](https://playground.betterpt.dev/) and you will see the following:
+**You will need a developer account to access the playground.**
 
-![GraphQL Playground Login](.gitbook/assets/screen-shot-2021-01-29-at-8.00.30-pm.png)
+Visit [https://playground.betterpt.dev/](https://playground.betterpt.dev) and you will see the following:
 
-You will need to use the email and password provided to you by us.  
-  
-Once you login you should see the following page:  
+![GraphQL Playground Login](<.gitbook/assets/Screen Shot 2021-01-29 at 8.00.30 PM.png>)
+
+You will need to use the email and password provided to you by us.\
+\
+Once you login you should see the following page:\
 
 
-![GraphQL Playground](.gitbook/assets/screen-shot-2021-01-29-at-8.04.43-pm.png)
+![GraphQL Playground](<.gitbook/assets/Screen Shot 2021-01-29 at 8.04.43 PM.png>)
 
 ## Queries and Mutations
 
@@ -67,7 +69,7 @@ mutation createPartnerVideoRoom($input: CreatePartnerVideoRoomInput){
 }
 ```
 
-2. `partnerVideoRoom(uid: String!): PartnerVideoRoom`
+2\. `partnerVideoRoom(uid: String!): PartnerVideoRoom`
 
 Here is an example query:
 
@@ -92,7 +94,7 @@ query partnerVideoRoom($uid: ID!){
 }
 ```
 
-3. `cancelPartnerVideoRoom(uid: ID!): PartnerVideoRoom`
+3\. `cancelPartnerVideoRoom(uid: ID!): PartnerVideoRoom`
 
 Here is an example mutation:
 
@@ -105,7 +107,7 @@ mutation cancelPartnerVideoRoom($uid: ID!) {
 }
 ```
 
-4. `reschedulePartnerVideoRoom(input: ReschedulePartnerVideoRoomInput!): PartnerVideoRoom`
+4\. `reschedulePartnerVideoRoom(input: ReschedulePartnerVideoRoomInput!): PartnerVideoRoom`
 
 Here is an example mutation:
 
@@ -121,7 +123,7 @@ mutation reschedulePartnerVideoRoom($input: ReschedulePartnerVideoRoomInput!) {
 
 ## Using the data in real life
 
-All of this GraphQL stuff has been super-fun and I would love to write more about it \(I really would, I'm a bit obsessed with GraphQL\) but how do we use this data in the real world? The response provides the following:
+How do we use this data in the real world? The response provides the following:
 
 1. Two links that are clearly marked as for the provider or for the patient.
 2. The time zone.
@@ -154,7 +156,7 @@ If BetterPT is provided with `partnerClinicName`and `partnerPatientEmail`and/or 
 
 * **Initial Confirmation** - Email sent with iCal attachment
 * **Reschedule** -  Email sent with iCal attachment
-* **Cancellation** - Email 
+* **Cancellation** - Email&#x20;
 * **One hour reminder** - Email
 * **Fifteen-minute reminder** - Email
 
@@ -162,15 +164,15 @@ If BetterPT is provided with `partnerClinicName`and `partnerPatientEmail`and/or 
 
 * **Initial Confirmation** - SMS
 * **Reschedule** - SMS
-* **Cancellation** - SMS 
+* **Cancellation** - SMS&#x20;
 * **One hour reminder** - SMS
 * **Fifteen-minute reminder** - SMS
 
 **Communication Schedule & Methods - Patient Email & Phone Provided**
 
-* **Initial Confirmation** - Email sent with iCal attachment 
+* **Initial Confirmation** - Email sent with iCal attachment&#x20;
 * **Reschedule** - Email sent with iCal attachment / SMS sent
-* **Cancellation** - Email 
+* **Cancellation** - Email&#x20;
 * **One hour reminder** - Email / SMS sent
 * **Fifteen-minute reminder** - Email / SMS sent
 
@@ -196,4 +198,3 @@ type PartnerVideoRoom {
 ```
 
 With this data, you can produce a simple report on Telehealth call duration, status, etc.
-
